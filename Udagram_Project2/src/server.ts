@@ -33,7 +33,7 @@ import { filterImageFromURL, deleteLocalFiles } from "./util/util"
   app.get("/filteredimage", async (req: Request, res: Response) => {
     // QUERY PARAMATERS
     //    image_url: URL of a publicly accessible image
-    const { image_url } = req.query
+    const image_url: string = req.query.image_url
     try {
       //1. validate the image_url query
       if (!image_url) {
@@ -56,7 +56,7 @@ import { filterImageFromURL, deleteLocalFiles } from "./util/util"
 
   // Root Endpoint
   // Displays a simple message to the user
-  app.get("/", async (req, res) => {
+  app.get("/", async (req: Request, res: Response) => {
     res.send("try GET /filteredimage?image_url={{}}")
   })
 
